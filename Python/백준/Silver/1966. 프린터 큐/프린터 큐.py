@@ -1,23 +1,25 @@
 from collections import deque
 import sys
 
-t = int(sys.stdin.readline().strip())
+testcase = int(input())
 
-for _ in range(t):
+for _ in range(testcase):
     n, m = map(int, sys.stdin.readline().split())
-    p = deque(map(int, sys.stdin.readline().split()))
-    c = 0
-    p_index = deque(range(n))
+    paper = deque(map(int, sys.stdin.readline().split()))
+    paper_index = deque([i for i in range(n)])
+    count = 0
 
+    while paper:
+        current_importance = paper[0]
+        current_index = paper_index[0]
 
-    while p:
-        if p[0] == max(p):
-            c += 1
-            p.popleft()
-            if p_index.popleft() == m:
-                print(c)
+        if current_importance == max(paper):
+            count += 1
+            if current_index == m:
+                print(count)
                 break
-
+            paper.popleft()
+            paper_index.popleft()
         else:
-            p.append(p.popleft())
-            p_index.append(p_index.popleft())
+            paper.rotate(-1)
+            paper_index.rotate(-1)
