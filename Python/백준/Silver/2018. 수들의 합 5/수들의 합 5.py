@@ -1,21 +1,11 @@
 n = int(input())
+count = 0
 
-count = 1
-sum = 1
-start_index = 1
-end_index = 1
-
-while end_index != n:
-    if sum == n:
+for a in range(1, n+1):
+    total = n - (a * (a -1)) // 2
+    
+    if total <= 0:
+        break
+    if total % a == 0:
         count += 1
-        end_index += 1
-        sum += end_index
-
-    elif sum > n:
-        sum -= start_index
-        start_index += 1
-
-    else:
-        end_index += 1
-        sum += end_index
 print(count)
