@@ -9,6 +9,6 @@ for _ in range(testcase):
         if i == "O":
             count += 1
             score += count
-        elif i == "X":
+        else:
             count = 0
     print(score)
