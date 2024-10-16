@@ -2,7 +2,7 @@ import sys
 input = sys.stdin.readline
 n = int(input())
 string = input().strip()
-answer = []
+answer = 0
 hash_dict = {
     "a": 1, "b": 2, "c": 3, "d": 4, "e": 5,
     "f": 6, "g": 7, "h": 8, "i": 9, "j": 10,
@@ -11,5 +11,5 @@ hash_dict = {
     "u": 21, "v": 22, "w": 23, "x": 24, "y": 25, "z": 26
 }
 for i in range(n):
-    answer.append(hash_dict[string[i]]*(31**i))
-print(sum(answer))
+    answer += hash_dict[string[i]]*(31**i)
+print(answer% 1234567891)
