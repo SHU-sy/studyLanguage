@@ -5,9 +5,8 @@ group_dict = {}
 n, m = map(int, input().split())
 for _ in range(n):
     group = input().strip()
-    count = int(input())
-    name = [input().strip() for _ in range(count)]
-    group_dict[group] = list(map(str, name))
+    name = [input().strip() for _ in range(int(input()))]
+    group_dict[group] = name
 for i in range(m):
     quiz = input().strip()
     type = input().strip()
