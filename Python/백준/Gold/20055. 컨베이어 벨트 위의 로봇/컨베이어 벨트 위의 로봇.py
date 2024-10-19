@@ -1,31 +1,30 @@
 import sys
 from collections import deque
+
 input = sys.stdin.readline
 
 def conveyor_belt(n, k, belt):
-    robot = deque([False] * n)
+    robot = deque([0] * n)
     step = 0
     zero_count = belt.count(0)
 
     while True:
         step += 1
-
         belt.rotate(1)
         robot.rotate(1)
-        robot[-1] = False
+        robot[-1] = 0
 
         for i in range(n-2, -1, -1):
-            if robot[i] and robot[i+1] == 0 and belt[i+1] > 0:
-                robot[i] = False
-                robot[i+1] = True
+            if robot[i] == 1 and robot[i+1] == 0 and belt[i+1] > 0:
+                robot[i] = 0
+                robot[i+1] = 1
                 belt[i+1] -= 1
                 if belt[i+1] == 0:
                     zero_count += 1
+        robot[-1] = 0
 
-        robot[-1] = False
-
-        if belt[0] > 0 and not robot[0]:
-            robot[0] = True
+        if belt[0] > 0 and robot[0] == 0:
+            robot[0] = 1
             belt[0] -= 1
             if belt[0] == 0:
                 zero_count += 1
