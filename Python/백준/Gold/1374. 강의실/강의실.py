@@ -2,11 +2,8 @@ import sys
 import heapq
 input = sys.stdin.readline
 n = int(input())
-c, start, end = zip(*[map(int, input().split()) for _ in range(n)])
-c, start, end = list(c), list(start), list(end)
 count = 1
-
-lectures = sorted(zip(c, start, end), key=lambda x:x[1])
+lectures = sorted([tuple(map(int, input().split())) for _ in range(n)], key=lambda x: x[1])
 end_heap = [lectures[0][2]]
 
 for lecture in lectures[1:]:
