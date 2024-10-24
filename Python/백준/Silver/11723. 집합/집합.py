@@ -2,29 +2,26 @@ import sys
 input = sys.stdin.readline
 
 m = int(input())
-s = set()
+mask = 0
 for _ in range(m):
     command = input().split()
     if len(command) > 1:
-        c = int(command[1])
+        c = 1 << int(command[1])
     match command[0]:
         case "add":
-            s.add(c)
+            mask |= c
 
         case "remove":
-            s.discard(c)
+            mask &= ~c
 
         case "check":
-            print(1 if c in s else 0)
+            print(1 if (mask & c) else 0)
 
         case "toggle":
-            if c in s:
-                s.remove(c)
-            else:
-                s.add(c)
+            mask ^= c
 
         case "all":
-            s = set(range(1, 21))
+            mask = ~0
 
         case "empty":
-            s.clear()
+            mask = 0
