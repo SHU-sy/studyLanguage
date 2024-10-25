@@ -1,39 +1,31 @@
 import sys
 input = sys.stdin.readline
 
-def palindrome(string):
-    str_len = len(string)
-    start = 0
-    end = str_len -1
+def palindrome(s):
+    return s == s[::-1]
 
-    while start < end:
-        if string[start] != string[end]:
-            left = True
-            left_s = start+1
-            left_e = end
-            while left_s < left_e:
-                if string[left_s] != string[left_e]:
-                    left = False
-                    break
-                left_s += 1
-                left_e -= 1
-
-            right = True
-            right_s = start
-            right_e = end - 1
-            while right_s < right_e:
-                if string[right_s] != string[right_e]:
-                    right = False
-                    break
-                right_s += 1
-                right_e -= 1
-
-            return 1 if left or right else 2
-        start += 1
-        end -= 1
-    return 0
+def remove_string(string, index):
+    new_string = string[:index] + string[index + 1:]
+    return palindrome(new_string)
 
 t = int(input())
 arr = [input().strip() for _ in range(t)]
 for string in arr:
-    print(palindrome(string))
+    if string == string[::-1]:
+        print(0)
+    else:
+        start = 0
+        end = len(string) - 1
+        palindrome_string = False
+
+        for i in range(len(string) // 2):
+            if string[start + i] != string[end - i]:
+                temp1, temp2 = start+i, end-i
+                if remove_string(string, temp1) or remove_string(string, temp2):
+                    palindrome_string = True
+                break
+
+        if palindrome_string:
+            print(1)
+        else:
+            print(2)
