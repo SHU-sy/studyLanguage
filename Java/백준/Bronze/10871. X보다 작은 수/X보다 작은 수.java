@@ -14,17 +14,13 @@ public class Main {
 
         input = br.readLine();
         st = new StringTokenizer(input);
-        int[] a = new int[n];
-        for (int i=0; i<n; i++) {
-            a[i] = Integer.parseInt(st.nextToken());
-        }
-
-        for (int number : a) {
+        for (int i = 0; i < n; i++) {
+            int number = Integer.parseInt(st.nextToken());
             if (number < x) {
                 sb.append(number).append(" ");
             }
         }
-
+        
         bw.write(sb.toString());
         bw.flush();
     }
