@@ -15,5 +15,8 @@ while True:
         router.popleft()
 
     else:
-        router.append(packet)
-print(" ".join(map(str, router)))
+        if len(router) >= n:
+            continue
+        else:
+            router.append(packet)
+print(" ".join(map(str, router)) if router else "empty")
