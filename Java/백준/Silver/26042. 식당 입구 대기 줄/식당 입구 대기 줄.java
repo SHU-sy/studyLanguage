@@ -1,24 +1,15 @@
 import java.io.*;
 import java.util.*;
 
-class Res {
-    int stu_len;
-    int stu_last;
-
-    Res(int stu_len, int stu_last) {
-        this.stu_len = stu_len;
-        this.stu_last = stu_last;
-    }
-}
-
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
         Deque<Integer> stu = new ArrayDeque<>();
-        List<Res> result = new ArrayList<>();
         int n = Integer.parseInt(br.readLine());
+        int max_len = 0;
+        int last_stu = 0;
 
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
@@ -27,22 +18,22 @@ public class Main {
             if (a == 1) {
                 int b = Integer.parseInt(st.nextToken());
                 stu.addLast(b);
+
+                if (stu.size() > max_len) {
+                    max_len = stu.size();
+                    last_stu = b;
+                }
+                else if (stu.size() == max_len) {
+                    last_stu = Math.min(b, last_stu);
+                }
             }
             else {
-                stu.pollLast();
-            }
-
-            if (!stu.isEmpty()) {
-                result.add(new Res(stu.size(), stu.getLast()));
+                stu.pollFirst();
             }
         }
 
-        result.sort(Comparator.comparing((Res r) -> r.stu_len).reversed()
-                .thenComparing(r -> r.stu_last));
-
-        if (!result.isEmpty()) {
-            Res first = result.get(0);
-            sb.append(first.stu_len).append(' ').append(first.stu_last);
+        if (max_len > 0) {
+            sb.append(max_len).append(" ").append(last_stu);
         }
         else {
             sb.append("empty");
