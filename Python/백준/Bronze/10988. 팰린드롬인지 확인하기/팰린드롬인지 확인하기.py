@@ -1,3 +1,1 @@
-import sys
-word = sys.stdin.readline().strip()
-print(1 if word==word[::-1] else 0)
+print(1 if (lambda a: a == a[::-1])(input().strip()) else 0)
