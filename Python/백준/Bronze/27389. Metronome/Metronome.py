@@ -1,2 +1,1 @@
-n = int(input())
-print(f"{n/4:.2f}")
+print(f"{int(input())/4:.2f}")
