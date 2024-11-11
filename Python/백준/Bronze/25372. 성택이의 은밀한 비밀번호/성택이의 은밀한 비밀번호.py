@@ -1,3 +1,2 @@
-n = int(input())
-for _ in range(n):
+for _ in range(int(input())):
     print('yes' if 6<=len(input())<=9 else 'no')
