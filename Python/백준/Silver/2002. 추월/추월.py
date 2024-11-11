@@ -1,23 +1,13 @@
 import sys
-from collections import OrderedDict
 input = sys.stdin.readline
 
 n = int(input())
-
-D_list = OrderedDict()
-for i in range(n):
-    D_list[input().strip()] = i
-
-Y_list = []
-for i in range(n):
-    Y_list.append(input().strip())
+enter = [input().strip() for _ in range(n)]
 
 count = 0
-
-for i in range(n - 1):
-    for j in range(i+1, n):
-        if D_list[Y_list[i]] > D_list[Y_list[j]]:
-            count += 1
-            break
-
+for _ in range(n):
+    car = input().strip()
+    if enter[0] != car:
+        count += 1
+    enter.remove(car)
 print(count)
