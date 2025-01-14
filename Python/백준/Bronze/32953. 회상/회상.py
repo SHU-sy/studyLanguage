@@ -11,4 +11,8 @@ for _ in range(n):
     for key in temp:
         counter[key] += 1
 
-print(len([key for key, count in counter.items() if count >= m]))
+count = 0
+for key in counter:
+    if counter[key] >= m:
+        count += 1
+print(count)
