@@ -1,18 +1,13 @@
 import sys
-from collections import defaultdict
 input = sys.stdin.readline
 
 n = int(input())
-num_card = map(int, input().split())
-count_card = defaultdict(int)
-
-for card in num_card:
-    count_card[card] += 1
-
+cards = set(map(int, input().split()))
 m = int(input())
-my_card = map(int, input().split())
-ans = []
+checks = list(map(int, input().split()))
 
-for mc in my_card:
-    ans.append(count_card[mc])
-print(" ".join(map(str, ans)))
+for check in checks:
+    if check in cards:
+        print(1, end=" ")
+    else:
+        print(0, end=" ")
