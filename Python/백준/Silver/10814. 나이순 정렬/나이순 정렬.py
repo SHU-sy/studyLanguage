@@ -1,12 +1,14 @@
 import sys
 input = sys.stdin.readline
+
 n = int(input())
-lists = []
+members = []
 
 for i in range(n):
     age, name = input().split()
-    lists.append((int(age), name, i))
-s_lists = sorted(lists, key=lambda x: (x[0], x[2]))
+    members.append((int(age), i, name))
 
-for age, name, _ in s_lists:
+members.sort(key=lambda x: (x[0], x[1]))
+
+for age, _, name in members:
     print(age, name)
