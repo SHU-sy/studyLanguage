@@ -3,12 +3,12 @@ import heapq
 input = sys.stdin.readline
 
 n = int(input())
-card = [int(input()) for _ in range(n)]
-heapq.heapify(card)
-count = 0
+cards = [int(input()) for _ in range(n)]
+heapq.heapify(cards)
 
-while len(card) > 1:
-    temp = heapq.heappop(card) + heapq.heappop(card)
-    heapq.heappush(card, temp)
-    count += temp
-print(count)
+total = 0
+while len(cards) > 1:
+    temp = heapq.heappop(cards) + heapq.heappop(cards)
+    heapq.heappush(cards, temp)
+    total += temp
+print(total)
