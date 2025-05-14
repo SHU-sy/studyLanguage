@@ -1,13 +1,14 @@
 import sys
+import heapq
 input = sys.stdin.readline
 
-n = input().strip()
-min = map(int, input().split())
-s_min = sorted(min)
-total_min = 0
-ans = []
+n = int(input())
+times = list(map(int, input().split()))
+heapq.heapify(times)
+total = 0
+current = 0
 
-for minute in s_min:
-    total_min += minute
-    ans.append(total_min)
-print(sum(ans))
+while times:
+    current += heapq.heappop(times)
+    total += current
+print(total)
