@@ -1,28 +1,26 @@
 import sys
 sys.setrecursionlimit(10**6)
-lines = sys.stdin.read().splitlines()
+data = sys.stdin.read().splitlines()
+n = int(data[0])
+maps = [list(map(int, line)) for line in data[1:]]
 
-def dfs(graph, i, j):
-    count = 1
-    dx = [0, 0, -1, 1]
-    dy = [-1, 1, 0, 0]
-    graph[i][j] = 0
+def dfs(graph, x, y):
+    graph[y][x] = 0
+    cnt = 1
+    for z in range(4):
+        nx = x + dx[z]
+        ny = y + dy[z]
+        if 0 <= nx < n and 0 <= ny < n and graph[ny][nx] == 1:
+            cnt += dfs(graph, nx, ny)
+    return cnt
 
-    for k in range(4):
-        ni = i + dx[k]
-        nj = j + dy[k]
-        if 0 <= ni < n and 0 <= nj < n and graph[ni][nj] == 1:
-            count += dfs(graph, ni, nj)
-    return count
-
-n = int(lines[0])
-graph = [list(map(int, line)) for line in lines[1:]]
+dx = [0, 0, 1, -1]
+dy = [1, -1, 0, 0]
 result = []
-
 for i in range(n):
     for j in range(n):
-        if graph[i][j] == 1:
-            result.append(dfs(graph, i, j))
-
+        if maps[i][j] == 1:
+            result.append(dfs(maps, j, i))
 print(len(result))
-for r in sorted(result): print(r)
+for num in sorted(result):
+    print(num)
