@@ -2,13 +2,15 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-members = []
+people = {}
 
-for i in range(n):
+for _ in range(n):
     age, name = input().split()
-    members.append((int(age), i, name))
+    age = int(age)
+    if age not in people:
+        people[age] = []
+    people[age].append(name)
 
-members.sort(key=lambda x: (x[0], x[1]))
-
-for age, _, name in members:
-    print(age, name)
+for age in sorted(people.keys()):
+    for name in people[age]:
+        print(age, name)
