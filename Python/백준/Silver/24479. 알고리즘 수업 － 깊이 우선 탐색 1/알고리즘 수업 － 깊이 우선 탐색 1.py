@@ -1,33 +1,31 @@
 import sys
-input = sys.stdin.readline
-sys.setrecursionlimit(200000)
+sys.setrecursionlimit(10**6)
+data = sys.stdin.read().splitlines()
 
-def dfs (graph, node, visited, order, count):
-    visited[node] = True
-    order[node] = count[0]
-    count[0] += 1
 
-    for neighbor in graph[node]:
+def dfs(graph, start, visited):
+    global cnt
+    visited[start] = cnt
+    cnt += 1
+    for neighbor in graph[start]:
         if not visited[neighbor]:
-            dfs(graph, neighbor, visited, order, count)
+            dfs(graph, neighbor, visited)
 
 
-n, m, r = map(int, input().split())
-
+n, m, r = map(int, data[0].split())
 graph = [[] for _ in range(n+1)]
+visited = [0] * (n+1)
+cnt = 1
 
+idx = 1
 for _ in range(m):
-    u, v = map(int, input().split())
+    u, v = map(int, data[idx].split())
     graph[u].append(v)
     graph[v].append(u)
+    idx += 1
 
-for i in range(1, n+1):
-    graph[i].sort()
+for u in range(1, n+1):
+    graph[u].sort()
 
-visited = [False] * (n+1)
-order = [0] * (n+1)
-count = [1]
-
-dfs(graph, r, visited, order, count)
-
-print("\n".join(map(str, order[1:])))
+dfs(graph, r, visited)
+print('\n'.join(map(str, visited[1:])))
