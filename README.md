@@ -1,2 +1,139 @@
-# studyLanguage
-This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+# studyLanguage 📚
+
+## 넌 머하는애냐? (이 저장소는 무엇인가요?)
+
+이 저장소는 **백준 온라인 저지(Baekjoon Online Judge)** 알고리즘 문제 풀이를 자동으로 관리하는 공간입니다. 
+[BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)를 통해 백준에서 문제를 풀면 자동으로 이곳에 코드가 업로드됩니다.
+
+### 🎯 주요 목적
+- 알고리즘 문제 풀이 연습 및 실력 향상
+- 다양한 프로그래밍 언어 학습 및 비교
+- 문제 풀이 히스토리 기록 및 관리
+- 코드 리뷰 및 최적화 학습
+
+---
+
+## 📊 저장소 통계
+
+### 언어별 풀이 수
+- **Python**: 332개 (주력 언어)
+- **Java**: 67개
+- **PyPy3**: 2개 (시간 최적화가 필요한 문제)
+- **C99**: 2개
+- **Kotlin (JVM)**: 1개
+- **아희(Aheui)**: 1개 (난해한 프로그래밍 언어)
+
+### 난이도별 풀이 수
+- 🥉 **Bronze**: 223개
+- 🥈 **Silver**: 145개
+- 🥇 **Gold**: 32개
+
+**총 문제 수**: 500개 이상
+
+---
+
+## 🔍 코드 품질 평가
+
+### 강점 💪
+1. **효율적인 입출력 처리**
+   - `sys.stdin.readline` 사용으로 빠른 입력 처리
+   - `BufferedReader/BufferedWriter` 활용 (Java)
+   
+2. **적절한 자료구조 선택**
+   - `heapq`, `deque` 등 문제에 맞는 자료구조 활용
+   - 시간복잡도를 고려한 알고리즘 구현
+
+3. **다양한 알고리즘 경험**
+   - 그리디, DP, 그래프, 정렬 등 다양한 알고리즘 학습
+   - Gold 티어까지 도전하는 실력
+
+4. **다중 언어 역량**
+   - Python을 주력으로 Java, C, Kotlin 등 다양한 언어 활용
+   - 언어별 특성을 이해하고 적절히 사용
+
+### 개선 가능 영역 📈
+1. **코드 가독성**
+   - 변수명을 더 명확하게 작성 (예: `do_card` → `doyeon_cards`)
+   - 주석 추가로 로직 설명
+
+2. **코드 재사용성**
+   - 반복되는 패턴을 함수로 분리
+   - 공통 유틸리티 함수 작성
+
+3. **테스트 케이스 관리**
+   - 엣지 케이스 검증
+   - 문제 풀이 과정 문서화
+
+---
+
+## 📂 저장소 구조
+
+```
+studyLanguage/
+├── Python/           # Python 3 풀이
+│   └── 백준/
+│       ├── Bronze/   # 브론즈 티어 문제
+│       ├── Silver/   # 실버 티어 문제
+│       ├── Gold/     # 골드 티어 문제
+│       └── Unrated/  # 티어 미정 문제
+├── PyPy3/           # PyPy3 풀이 (시간 최적화)
+├── Java/            # Java 풀이
+├── C99/             # C 풀이
+├── Kotlin (JVM)/    # Kotlin 풀이
+├── 아희/            # 아희 언어 풀이
+└── Text/            # 텍스트 파일
+```
+
+각 문제 폴더에는:
+- 소스 코드 파일
+- README.md (문제 설명, 성능 요약)
+
+---
+
+## 🚀 사용 방법
+
+### 문제 탐색
+1. 언어별 폴더에서 원하는 티어의 폴더로 이동
+2. 문제 번호와 제목으로 폴더 찾기
+3. README.md로 문제 확인, 소스 코드로 풀이 확인
+
+### BaekjoonHub 연동
+이 저장소는 [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub) 크롬 확장 프로그램으로 자동 관리됩니다.
+
+---
+
+## 💡 학습 포인트
+
+### 주요 알고리즘
+- 그래프 (위상 정렬, Union-Find)
+- 동적 계획법 (DP, LIS)
+- 그리디 알고리즘
+- 자료구조 (힙, 덱, 스택)
+- 투 포인터, 슬라이딩 윈도우
+- 정렬 및 이진 탐색
+
+### 문제 해결 패턴
+1. 입출력 최적화: `sys.stdin.readline`, `BufferedReader`
+2. 시간복잡도 고려: O(N log N) 이하로 최적화
+3. 메모리 효율: 필요한 만큼만 저장
+4. 엣지 케이스 처리: 빈 입력, 최대값, 최소값
+
+---
+
+## 📈 학습 진행 상황
+
+- ✅ Bronze 완벽 마스터 (223문제)
+- ✅ Silver 집중 학습 중 (145문제)
+- 🔄 Gold 도전 중 (32문제)
+- 🎯 목표: Platinum 티어 도전
+
+---
+
+## 🤝 기여 및 피드백
+
+문제 풀이에 대한 개선 제안이나 질문이 있다면 Issue를 통해 공유해 주세요!
+
+---
+
+**Last Updated**: 2025-11-10  
+**Powered by**: [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)
