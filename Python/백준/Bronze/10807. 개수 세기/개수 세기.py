@@ -1,10 +1,8 @@
 import sys
-n = int(sys.stdin.readline())
-a = list(map(int, sys.stdin.readline().split()))
-v = int(sys.stdin.readline())
-s = 0
+input = sys.stdin.readline
 
-for i in range(n):
-    if a[i]==v:
-        s+=1
-print(s)
+n = int(input())
+nums = list(map(int, input().split()))
+v = int(input())
+
+print(nums.count(v))
