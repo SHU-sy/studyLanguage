@@ -1,10 +1,7 @@
-t=int(input())
-c=int(input())
-s=0
-for i in range(c):
-    a,b = map(int,input().split())
-    s+=a*b
-if t==s:
-    print("Yes")
-else:
-    print("No")
+import sys
+input = sys.stdin.readline
+
+x = int(input())
+n = int(input())
+res = sum((int(a) * int(b) for a, b in (input().split() for _ in range(n))))
+print("Yes" if res == x else "No")
