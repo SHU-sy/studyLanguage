@@ -1,3 +1,5 @@
-n=int(input())
-for i in range(1,10):
-    print(f"{n} * {i} = {n*i}")
+n = int(input())
+result = []
+for i in range(1, 10):
+    result.append(f"{n} * {i} = {n * i}")
+print("\n".join(result))
