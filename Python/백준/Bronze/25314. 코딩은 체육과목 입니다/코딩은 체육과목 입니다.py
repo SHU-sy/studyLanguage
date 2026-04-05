@@ -1,2 +1,1 @@
-n = int(input())
-print("long " * ((n + 3) // 4) + "int")
+print("long " * (int(input()) // 4) + "int")
