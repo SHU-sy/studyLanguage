@@ -6,16 +6,16 @@ res = []
 n = int(input())
 presents = []
 for _ in range(n):
-    information = list(map(int, input().split()))
+    a, *information = list(map(int, input().split()))
 
-    if information[0] == 0:
+    if a == 0:
         if presents:
             res.append(-heapq.heappop(presents))
         else:
             res.append(-1)
 
     else:
-        for present in information[1:]:
+        for present in information:
             heapq.heappush(presents, -present)
 
 print("\n".join(map(str, res)))
